@@ -1,0 +1,5 @@
+C:\Users\Will\Documents\NHS\NHSApplication\ClinicalTrialsSchedulerClassLibrary\bin\Debug\ClinicalTrialsSchedulerClassLibrary.dll
+C:\Users\Will\Documents\NHS\NHSApplication\ClinicalTrialsSchedulerClassLibrary\bin\Debug\ClinicalTrialsSchedulerClassLibrary.pdb
+C:\Users\Will\Documents\NHS\NHSApplication\ClinicalTrialsSchedulerClassLibrary\obj\Debug\ClinicalTrialsSchedulerClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Will\Documents\NHS\NHSApplication\ClinicalTrialsSchedulerClassLibrary\obj\Debug\ClinicalTrialsSchedulerClassLibrary.dll
+C:\Users\Will\Documents\NHS\NHSApplication\ClinicalTrialsSchedulerClassLibrary\obj\Debug\ClinicalTrialsSchedulerClassLibrary.pdb

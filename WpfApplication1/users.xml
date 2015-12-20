@@ -1,0 +1,4 @@
+<Users>
+  <testuser_test_com salt="ASDfgdhsERG3" hash="7e46fabc0becb4a188b605f3d323d5a461c40fa27adaca6ec809e940d943208b" admin="false"/>
+  <testadmin_test_com salt="SDFGJsfghsd" hash="201721e54b2acf6f346660d11b51414f5a0ad82a7b17d3cdf9a66dec27aaad4c" admin="true"/>
+</Users>

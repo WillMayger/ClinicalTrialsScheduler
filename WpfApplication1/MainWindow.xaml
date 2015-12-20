@@ -1,0 +1,21 @@
+﻿<Window x:Class="NHSApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NHSApplication"
+        mc:Ignorable="d"
+        Title="Clinical Trials Scheduler" Height="550" Width="725" MinWidth="750" MinHeight="550" MaxWidth="750" MaxHeight="550" Background="#FFB9F9B9">
+    <Grid>
+        <TextBlock x:Name="clinicalTrialsScheduler" Margin="215.8,20.963,216.3,0" TextWrapping="Wrap" Text="Clinical Trials Scheduler" VerticalAlignment="Top" FontSize="26.667" FontWeight="Bold"/>
+        <TextBlock x:Name="pharmacy" Margin="323.554,61.433,340.646,0" TextWrapping="Wrap" Text="Pharmacy" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="medwayMaritimeHospital" Margin="276.635,97.393,265.665,0" TextWrapping="Wrap" Text="Medway Maritime Hospital" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="addNewPatientBtn" Content="Add New Patient" HorizontalAlignment="Left" Margin="37.62,236.622,0,229.405" Width="144.302" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold"/>
+        <Button x:Name="trialListBtn" Content="Trial List" HorizontalAlignment="Left" Margin="37.62,0,0,83.861" Width="144.302" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold" Height="52.973" VerticalAlignment="Bottom"/>
+        <Button x:Name="patientListBtn" HorizontalAlignment="Right" Margin="0,236.622,47.62,229.405" Width="144.302" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold" Content="Patient List" />
+        <Button x:Name="patientPageBtn" Content="Patient Page" Margin="286.8,236.622,310.898,229.405" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold"/>
+        <Button x:Name="allNotesBtn" Content="All Notes" HorizontalAlignment="Right" Margin="0,0,47.62,83.861" Width="144.302" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold" Height="52.973" VerticalAlignment="Bottom"/>
+        <Button x:Name="sevenDayScheduleBtn" Content="7 Day Schedual" Margin="286.8,0,310.898,83.861" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold" VerticalAlignment="Bottom" Height="52.973"/>
+
+    </Grid>
+</Window>
