@@ -36,7 +36,9 @@ namespace WpfApplication1
             string userEmail = emailInput.Text;
             string userPassword = passwordInput.Password;
 
-            bool authenticated = Auth.AuthenticateUser(userEmail, userPassword);
+            Auth auth = new Auth(userEmail, userPassword);
+
+            bool authenticated = auth.AuthenticateUser();
 
             if (authenticated)
             {

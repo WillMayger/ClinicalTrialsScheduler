@@ -4,68 +4,79 @@ using ClinicalTrialsSchedulerClassLibrary;
 
 namespace TestClinicalTrailsScheduler
 {
+    
+
     [TestClass]
     public class UserUnitTest
     {
-        string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\users.xml";
+        public string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\users.xml";
 
         #region UserSuccess()
 
         [TestMethod]
         public void WhenUserExists()
         {
-            string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\users.xml";
             string testEmail = "testuser@test.com";
 
             User user = new User(testEmail, fileLocation);
 
-            Assert.IsNotNull(user);
+            Assert.IsTrue(user.exists);
         }
 
         [TestMethod]
         public void WhenUserFindsCorrectHash()
         {
-            string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\users.xml";
+            
             string testEmail = "testuser@test.com";
             string testHash = "7e46fabc0becb4a188b605f3d323d5a461c40fa27adaca6ec809e940d943208b";
 
             User user = new User(testEmail, fileLocation);
 
-            Assert.AreEqual(testHash, user.hash);
+            Assert.AreEqual(testHash, user.GetHash());
         }
 
         [TestMethod]
         public void WhenUserFindsCorrectSalt()
         {
-            string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\users.xml";
+            
             string testEmail = "testuser@test.com";
             string testSalt = "ASDfgdhsERG3";
 
             User user = new User(testEmail, fileLocation);
 
-            Assert.AreEqual(testSalt, user.salt);
+            Assert.AreEqual(testSalt, user.GetSalt());
+        }
+
+        [TestMethod]
+        public void WhenUserFindsCorrectEmail()
+        {
+            string testEmail = "testuser@test.com";
+
+            User user = new User(testEmail, fileLocation);
+
+            Assert.AreEqual(testEmail, user.GetEmail());
         }
 
         [TestMethod]
         public void WhenUserIsAnAdmin()
         {
-            string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\users.xml";
+            
             string testEmail = "testadmin@test.com";
 
             User user = new User(testEmail, fileLocation);
 
-            Assert.IsTrue(user.admin);
+            Assert.IsTrue(user.GetAdmin());
         }
 
         [TestMethod]
         public void WhenUserIsNotAnAdmin()
         {
-            string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\users.xml";
+            
             string testEmail = "testuser@test.com";
 
             User user = new User(testEmail, fileLocation);
 
-            Assert.IsFalse(user.admin);
+            Assert.IsFalse(user.GetAdmin());
         }
 
 
@@ -78,7 +89,7 @@ namespace TestClinicalTrailsScheduler
 
             User user = new User(nonExistantEmail, fileLocation);
 
-            Assert.IsNull(user);
+            Assert.IsFalse(user.exists);
         }
 
         [TestMethod]
@@ -88,7 +99,7 @@ namespace TestClinicalTrailsScheduler
 
             User user = new User(nonExistantHashEmail, fileLocation);
 
-            Assert.IsNull(user.hash);
+            Assert.IsNull(user.GetHash());
         }
 
         [TestMethod]
@@ -98,7 +109,17 @@ namespace TestClinicalTrailsScheduler
 
             User user = new User(nonExistantSaltEmail, fileLocation);
 
-            Assert.IsNull(user.salt);
+            Assert.IsNull(user.GetSalt());
+        }
+
+        [TestMethod]
+        public void WhenUserFindsNoCorrectEmail()
+        {
+            string nonExistantEmail = "ihavenoemail@nonexistant.com";
+
+            User user = new User(nonExistantEmail, fileLocation);
+
+            Assert.IsNull(user.GetEmail());
         }
 
         [TestMethod]
@@ -108,7 +129,7 @@ namespace TestClinicalTrailsScheduler
 
             User user = new User(nonExistantAdminEmail, fileLocation);
 
-            Assert.IsNull(user.admin);
+            Assert.IsFalse(user.GetAdmin());
         }
         #endregion
     }

@@ -9,31 +9,36 @@ namespace ClinicalTrialsSchedulerClassLibrary
 {
     public class Auth
     {
-        public static bool AuthenticateUser(string email, string password)
+        private string email { get; set; }
+        private string hash { get; set; }
+        private string salt { get; set; }
+        private User user { get; set; }
+        private string userLoginHashAttempt { get; set; }
+        private string fileLocation { get; set; }
+
+        public Auth(string email, string password)
         {
-            string salt = GetSalt(email, @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\users.xml");
-            string hashedPassword = CreateHash(password, salt);
-            if (CheckCredentials(hashedPassword, email)) return true;
+            fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\users.xml";
+
+            User user = new User(email, fileLocation);
+
+            this.user = user;
+            this.email = email;
+            this.hash = user.GetHash();
+            this.salt = user.GetSalt();
+            this.userLoginHashAttempt = CreateHash(password);
+            
+        }
+
+        public bool AuthenticateUser()
+        {
+            if (this.hash == this.userLoginHashAttempt) return true;
             return false;
         }
 
-        public static string GetSalt(string email, string fileLocation)
+        public string CreateHash(string password)
         {
-            User user = new User(email, fileLocation);
-
-            return user.salt;
-
-
-        }
-        public static string GetHash(string email, string fileLocation)
-        {
-            User user = new User(email, fileLocation);
-            return user.hash;
-        }
-
-        public static string CreateHash(string password, string salt)
-        {
-            password = password + salt;
+            password = password + this.salt;
             SHA256Managed crypt = new SHA256Managed();
             string hashedPassword = String.Empty;
             byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(password), 0, Encoding.UTF8.GetByteCount(password));
@@ -44,13 +49,5 @@ namespace ClinicalTrialsSchedulerClassLibrary
             }
             return hashedPassword;
         }
-
-        public static bool CheckCredentials(string hash, string email)
-        {
-            string userSavedHash = GetHash(email, @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\users.xml");
-            if (hash == userSavedHash) return true;
-            return false;
-        }
-
     }
 }
