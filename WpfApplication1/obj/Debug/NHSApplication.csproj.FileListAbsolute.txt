@@ -16,3 +16,5 @@ c:\users\will\documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplicat
 c:\users\will\documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.pdb
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\bin\Debug\ClinicalTrialsSchedulerClassLibrary.dll
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\bin\Debug\ClinicalTrialsSchedulerClassLibrary.pdb
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NewPatientWindow.g.cs
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NewPatientWindow.baml

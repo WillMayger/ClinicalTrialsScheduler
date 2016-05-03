@@ -10,28 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ClinicalTrialsSchedulerClassLibrary;
-using NHSApplication;
 
 namespace NHSApplication
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NewPatientWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewPatientWindow : Window
     {
-        public MainWindow()
+        public NewPatientWindow()
         {
             InitializeComponent();
         }
 
-        private void AddNewPatientWindow(object sender, RoutedEventArgs e)
+        private void HomeScreen()
         {
-            NewPatientWindow NewPatient = new NewPatientWindow();
-            NewPatient.Show();
+            MainWindow Home = new MainWindow();
+            Home.Show();
             Close();
+        }
+
+        private void OnSave(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -124,7 +124,7 @@ namespace NHSApplication {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApplication1;component/mainwindow%20-%20copy.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NHSApplication;component/mainwindow%20-%20copy.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\MainWindow - Copy.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
