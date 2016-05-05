@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClinicalTrialsSchedulerClassLibrary;
 
 namespace NHSApplication
 {
@@ -33,7 +34,24 @@ namespace NHSApplication
 
         private void OnSave(object sender, RoutedEventArgs e)
         {
+            string firstName = textBoxFirstName.Text;
+            string surName = textBoxSurName.Text;
+            string hospitalNumber = textBoxHospitalNumber.Text;
+            string trialNumber = textBoxTrialNumber.Text;
+            string trial = textBoxTrial.Text;
+            string randomizationArm = textBoxRandomizationArm.Text;
+            string cycleLength = textBoxCycleLength.Text;
+            string cycle = textBoxCycle.Text;
+            string cycleOf = textBoxCycleOf.Text;
 
+            //need to get selected date the below line is wrong
+            string dueDate = Calendar.SelectedDateProperty.ToString();
+
+            Patient newPatient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
+
+            //newPatient.Save();
+
+            HomeScreen();
         }
     }
 }

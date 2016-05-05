@@ -11,25 +11,27 @@
         <TextBlock x:Name="pharmacy" Margin="323.554,61.433,340.646,0" TextWrapping="Wrap" Text="Pharmacy" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="medwayMaritimeHospital" Margin="276.635,97.393,265.665,0" TextWrapping="Wrap" Text="Medway Maritime Hospital" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="label" Content="Patient Name:" HorizontalAlignment="Left" Height="28" Margin="138,146,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="28" Margin="309,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="28" Margin="562,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="28" Margin="309,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <TextBox x:Name="textBoxSurName" HorizontalAlignment="Left" Height="28" Margin="562,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
         <Label x:Name="label1" Content="First" HorizontalAlignment="Left" Height="28" Margin="267,146,0,0" VerticalAlignment="Top" Width="63"/>
         <Label x:Name="label1_Copy" Content="Surname" HorizontalAlignment="Left" Height="28" Margin="487,146,0,0" VerticalAlignment="Top" Width="63"/>
         <Label x:Name="label_Copy" Content="Hospital No" HorizontalAlignment="Left" Height="28" Margin="138,179,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="28" Margin="309,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <TextBox x:Name="textBoxHospitalNumber" HorizontalAlignment="Left" Height="28" Margin="309,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
         <Label x:Name="label_Copy1" Content="Trial No" HorizontalAlignment="Left" Height="28" Margin="138,212,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="28" Margin="309,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <TextBox x:Name="textBoxTrialNumber" HorizontalAlignment="Left" Height="28" Margin="309,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
         <Label x:Name="label_Copy2" Content="Trial" HorizontalAlignment="Left" Height="28" Margin="138,245,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="textBox_Copy3" HorizontalAlignment="Left" Height="28" Margin="309,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <TextBox x:Name="textBoxTrial" HorizontalAlignment="Left" Height="28" Margin="309,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
         <Label x:Name="label_Copy3" Content="Randomisation Arm" HorizontalAlignment="Left" Height="28" Margin="138,278,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy4" HorizontalAlignment="Left" Height="28" Margin="309,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <TextBox x:Name="textBoxRandomizationArm" HorizontalAlignment="Left" Height="28" Margin="309,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
         <Label x:Name="label_Copy4" Content="Cycle Length" HorizontalAlignment="Left" Height="28" Margin="138,306,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy5" HorizontalAlignment="Left" Height="28" Margin="309,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <TextBox x:Name="textBoxCycleLength" HorizontalAlignment="Left" Height="28" Margin="309,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
         <Label x:Name="label_Copy5" Content="Cycle" HorizontalAlignment="Left" Height="28" Margin="138,339,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy6" HorizontalAlignment="Left" Height="28" Margin="309,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <TextBox x:Name="textBoxCycle" HorizontalAlignment="Left" Height="28" Margin="309,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
         <Label x:Name="label_Copy6" Content="Due Date" HorizontalAlignment="Left" Height="28" Margin="138,372,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="saveBtn" Click="OnSave" Content="Save" Height="67" Margin="562,0,51,114" VerticalAlignment="Bottom" Background="#FFB891F0" FontWeight="Bold"/>
-        <Calendar HorizontalAlignment="Left" Margin="309,379,0,0" VerticalAlignment="Top"/>
+        <Calendar x:Name="dueDate" HorizontalAlignment="Left" Margin="309,379,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxCycleOf" HorizontalAlignment="Left" Height="28" Margin="395,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
+        <Label x:Name="label_Copy7" Content="Of" HorizontalAlignment="Left" Height="28" Margin="361,344,0,0" VerticalAlignment="Top" Width="24"/>
 
 
     </Grid>
