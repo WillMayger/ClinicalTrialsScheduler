@@ -43,11 +43,9 @@ namespace NHSApplication
             string cycleLength = textBoxCycleLength.Text;
             string cycle = textBoxCycle.Text;
             string cycleOf = textBoxCycleOf.Text;
+            string dueDateSelected = dueDate.SelectedDate.ToString();
 
-            //need to get selected date the below line is wrong
-            string dueDate = Calendar.SelectedDateProperty.ToString();
-
-            Patient newPatient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
+            Patient newPatient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDateSelected);
 
             //newPatient.Save();
 
