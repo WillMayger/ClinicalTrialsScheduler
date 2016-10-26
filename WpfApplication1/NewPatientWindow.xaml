@@ -28,7 +28,7 @@
         <Label x:Name="label_Copy5" Content="Cycle" HorizontalAlignment="Left" Height="28" Margin="138,339,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBoxCycle" HorizontalAlignment="Left" Height="28" Margin="309,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
         <Label x:Name="label_Copy6" Content="Due Date" HorizontalAlignment="Left" Height="28" Margin="138,372,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="saveBtn" Click="OnSave" Content="Save" Height="67" Margin="562,0,51,114" VerticalAlignment="Bottom" Background="#FFB891F0" FontWeight="Bold"/>
+        <Button x:Name="saveBtn" Click="OnSave" Content="Save" Height="67" Margin="562,0,51,117" VerticalAlignment="Bottom" Background="#FFB891F0" FontWeight="Bold"/>
         <Calendar x:Name="dueDate" HorizontalAlignment="Left" Margin="309,379,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxCycleOf" HorizontalAlignment="Left" Height="28" Margin="395,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
         <Label x:Name="label_Copy7" Content="Of" HorizontalAlignment="Left" Height="28" Margin="361,344,0,0" VerticalAlignment="Top" Width="24"/>

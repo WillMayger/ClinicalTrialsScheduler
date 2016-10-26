@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace ClinicalTrialsSchedulerClassLibrary
 {
     public class Patient
     {
-        private string firstName { get; set; }
-        private string surName { get; set; }
-        private string hospitalNumber { get; set; }
-        private string trialNumber { get; set; }
-        private string trial { get; set; }
-        private string randomizationArm { get; set; }
-        private string cycleLength { get; set; }
-        private string cycle { get; set; }
-        private string cycleOf { get; set; }
-        private string dueDate { get; set; }
+        public string firstName { get; set; }
+        public string surName { get; set; }
+        public string hospitalNumber { get; set; }
+        public string trialNumber { get; set; }
+        public string trial { get; set; }
+        public string randomizationArm { get; set; }
+        public string cycleLength { get; set; }
+        public string cycle { get; set; }
+        public string cycleOf { get; set; }
+        public string dueDate { get; set; }
+        public string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\patient.xml";
 
         public Patient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, string dueDate)
         {
@@ -33,8 +35,70 @@ namespace ClinicalTrialsSchedulerClassLibrary
             this.cycle = cycle;
             this.cycleOf = cycleOf;
             this.dueDate = dueDate;
+        }
+
+        public Patient()
+        {
+            
+        }
+
+        public void SavePatient()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlElement newElem = doc.CreateElement("Patient");
+
+            newElem.SetAttribute("firstName", firstName);
+            newElem.SetAttribute("surName", surName);
+            newElem.SetAttribute("hospitalNumber", hospitalNumber);
+            newElem.SetAttribute("trialNumber", trialNumber);
+            newElem.SetAttribute("trial", trial);
+            newElem.SetAttribute("randomizationArm", randomizationArm);
+            newElem.SetAttribute("cycleLength", cycleLength);
+            newElem.SetAttribute("cycle", cycle);
+            newElem.SetAttribute("cycleOf", cycleOf);
+            newElem.SetAttribute("dueDate", dueDate);
+
+            doc.DocumentElement.AppendChild(newElem);
+
+            doc.Save(fileLocation);
+        }
+
+        public List<Patient> LoadPatients(string firstName, string surName)
+        {
+            List<Patient> patientsArray = new List<Patient>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+                if (patient.Attributes["surName"].Value.ToString() == surName)
+                {
+                    Patient newPatient = new Patient(
+                        patient.Attributes["firstName"].Value.ToString(),
+                        patient.Attributes["surName"].Value.ToString(),
+                        patient.Attributes["hospitalNumber"].Value.ToString(),
+                        patient.Attributes["trialNumber"].Value.ToString(),
+                        patient.Attributes["trial"].Value.ToString(),
+                        patient.Attributes["randomizationArm"].Value.ToString(),
+                        patient.Attributes["cycleLength"].Value.ToString(),
+                        patient.Attributes["cycle"].Value.ToString(),
+                        patient.Attributes["cycleOf"].Value.ToString(),
+                        patient.Attributes["dueDate"].Value.ToString()
+                        );
+
+                    patientsArray.Add(newPatient);
+                  }
+
+            }
+
+            return patientsArray;
 
         }
 
     }
+
 }

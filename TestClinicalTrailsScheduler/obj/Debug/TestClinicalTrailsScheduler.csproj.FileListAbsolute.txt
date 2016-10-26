@@ -1,7 +1,6 @@
 C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\bin\Debug\TestClinicalTrailsScheduler.dll
 C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\bin\Debug\TestClinicalTrailsScheduler.pdb
 C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\bin\Debug\ClinicalTrialsSchedulerClassLibrary.dll
-C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\bin\Debug\ClinicalTrialsSchedulerClassLibrary.pdb
 C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\obj\Debug\TestClinicalTrailsScheduler.csprojResolveAssemblyReference.cache
 C:\Users\Will\Documents\NHS\NHSApplication\TestClinicalTrailsScheduler\obj\Debug\TestClinicalTrailsScheduler.dll
