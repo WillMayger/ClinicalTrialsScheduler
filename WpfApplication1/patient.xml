@@ -1,3 +1,5 @@
 <Patients>
   <Patient firstName="will" surName="Mayger" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="00" />
+  <Patient firstName="ToBeNot" surName="Deleted" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="00" />
+  <Patient firstName="HasBeenEdited" surName="Edited" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="01" cycleLength="00" cycle="00" cycleOf="00" dueDate="00" />
 </Patients>
