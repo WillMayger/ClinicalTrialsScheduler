@@ -10,35 +10,25 @@ namespace ClinicalTrialsSchedulerClassLibrary
 {
     public class Patient
     {
-        [DisplayName("First Name")]
         public string firstName { get; set; }
-
-        [DisplayName("Last Name")]
+        
         public string surName { get; set; }
-
-        [DisplayName("Hospital No")]
+        
         public string hospitalNumber { get; set; }
-
-        [DisplayName("Trial No")]
+        
         public string trialNumber { get; set; }
-
-        [DisplayName("Trial")]
+        
         public string trial { get; set; }
-
-        [DisplayName("Randomization Arm")]
+        
         public string randomizationArm { get; set; }
-
-        [DisplayName("Cycle Length")]
+        
         public string cycleLength { get; set; }
-
-        [DisplayName("Cycle")]
+        
         public string cycle { get; set; }
-
-        [DisplayName("Cycle Of")]
+        
         public string cycleOf { get; set; }
-
-        [DisplayName("Due Date")]
-        public string dueDate { get; set; }
+        
+        public DateTime dueDate { get; set; }
 
         public static string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\patient.xml";
 
@@ -55,7 +45,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
             this.cycleLength = cycleLength;
             this.cycle = cycle;
             this.cycleOf = cycleOf;
-            this.dueDate = dueDate;
+            this.dueDate = Convert.ToDateTime(dueDate);
         }
 
         public Patient()
@@ -79,7 +69,15 @@ namespace ClinicalTrialsSchedulerClassLibrary
             newElem.SetAttribute("cycleLength", cycleLength);
             newElem.SetAttribute("cycle", cycle);
             newElem.SetAttribute("cycleOf", cycleOf);
-            newElem.SetAttribute("dueDate", dueDate);
+
+            string dueDt = dueDate.ToString();
+
+            if (dueDt == "")
+            {
+                dueDt = "01/08/2016 00:00:00.00";
+            }
+
+            newElem.SetAttribute("dueDate", dueDt);
 
             doc.DocumentElement.AppendChild(newElem);
 
@@ -107,67 +105,6 @@ namespace ClinicalTrialsSchedulerClassLibrary
             doc.DocumentElement.AppendChild(newElem);
 
             doc.Save(fileLocation);
-        }
-
-        public string GetPatientNotes()
-        {
-            string notes = "";
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(fileLocation);
-
-            XmlNodeList patients = doc.GetElementsByTagName("Patient");
-
-            foreach (XmlElement patient in patients)
-            {
-
-                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
-                {
-
-                    try
-                    {
-                        notes = patient.Attributes["notes"].Value.ToString();
-                        return notes;
-                    }
-                    catch
-                    {
-                        return notes;
-                    }
-
-                }
-
-            }
-
-            return notes;
-
-        }
-
-        public bool SavePatientNotes(string notes)
-        {
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(fileLocation);
-
-            XmlNodeList patients = doc.GetElementsByTagName("Patient");
-
-            foreach (XmlElement patient in patients)
-            {
-
-                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
-                {
-
-                    patient.SetAttribute("notes", notes);
-
-                    doc.Save(fileLocation);
-
-                    return true;
-
-                }
-
-            }
-
-            return false;
-
         }
 
         public List<Patient> LoadPatients(string firstName, string surName)
@@ -293,6 +230,30 @@ namespace ClinicalTrialsSchedulerClassLibrary
             return false;
         }
 
+        public bool DeletePatient()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+                    doc.DocumentElement.RemoveChild(patient);
+
+                    doc.Save(fileLocation);
+
+                    return true;
+                }
+
+            }
+
+            return false;
+        }
+
         public bool EditPatient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, string dueDate)
         {
 
@@ -305,6 +266,326 @@ namespace ClinicalTrialsSchedulerClassLibrary
             return true;
         }
 
+        #region notes
+
+        public string GetPatientNotes()
+        {
+            string notes = "";
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    try
+                    {
+                        notes = patient.Attributes["notes"].Value.ToString();
+                        return notes;
+                    }
+                    catch
+                    {
+                        return notes;
+                    }
+
+                }
+
+            }
+
+            return notes;
+
+        }
+
+        public bool SavePatientNotes(string notes)
+        {
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    patient.SetAttribute("notes", notes);
+
+                    doc.Save(fileLocation);
+
+                    return true;
+
+                }
+
+            }
+
+            return false;
+
+        }
+
+#endregion
+
+        #region Delay
+
+        public string GetDelayInDays()
+        {
+            string delayInDays = "";
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    try
+                    {
+                        delayInDays = patient.Attributes["delayInDays"].Value.ToString();
+                        return delayInDays;
+                    }
+                    catch
+                    {
+                        return delayInDays;
+                    }
+
+                }
+
+            }
+
+            return delayInDays;
+
+        }
+
+        public bool SaveDelayInDays(string delayInDays)
+        {
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    patient.SetAttribute("delayInDays", delayInDays);
+
+                    doc.Save(fileLocation);
+
+                    return true;
+
+                }
+
+            }
+
+            return false;
+
+        }
+
+        #endregion
+
+        #region Prescription
+
+        public bool GetPrescriptionPrescriped()
+        {
+            bool prescriptionPrescriped = false;
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    try
+                    {
+                        prescriptionPrescriped = Convert.ToBoolean(patient.Attributes["prescriptionPrescriped"].Value.ToString());
+                        return prescriptionPrescriped;
+                    }
+                    catch
+                    {
+                        return prescriptionPrescriped;
+                    }
+
+                }
+
+            }
+
+            return prescriptionPrescriped;
+
+        }
+
+        public bool SavePrescriptionPrescriped(bool prescriptionPrescriped)
+        {
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    patient.SetAttribute("prescriptionPrescriped", prescriptionPrescriped.ToString());
+
+                    doc.Save(fileLocation);
+
+                    return true;
+
+                }
+
+            }
+
+            return false;
+
+        }
+#endregion
+
+        #region Dispenced
+
+        public bool GetDispenced()
+        {
+            bool despenced = false;
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    try
+                    {
+                        despenced = Convert.ToBoolean(patient.Attributes["despenced"].Value.ToString());
+                        return despenced;
+                    }
+                    catch
+                    {
+                        return despenced;
+                    }
+
+                }
+
+            }
+
+            return despenced;
+
+        }
+
+        public bool SaveDispenced(bool despenced)
+        {
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    patient.SetAttribute("despenced", despenced.ToString());
+
+                    doc.Save(fileLocation);
+
+                    return true;
+
+                }
+
+            }
+
+            return false;
+
+        }
+        #endregion
+
+        #region blood
+        public bool GetBloodWarranty()
+        {
+            bool bloodWarranty = false;
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    try
+                    {
+                        bloodWarranty = Convert.ToBoolean(patient.Attributes["bloodWarranty"].Value.ToString());
+                        return bloodWarranty;
+                    }
+                    catch
+                    {
+                        return bloodWarranty;
+                    }
+
+                }
+
+            }
+
+            return bloodWarranty;
+
+        }
+
+        public bool SaveBloodWarranty(bool bloodWarranty)
+        {
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    patient.SetAttribute("bloodWarranty", bloodWarranty.ToString());
+
+                    doc.Save(fileLocation);
+
+                    return true;
+
+                }
+
+            }
+
+            return false;
+
+        }
+        #endregion
     }
 
 }

@@ -101,10 +101,17 @@ namespace NHSApplication
 
             Patient selectedPatient = (Patient)dataGrid.Items[selected];
 
-            SelectedPatient selectedPatientWin = new SelectedPatient(selectedPatient);
+            NewPatientWindow patientWindow = new NewPatientWindow(selectedPatient);
+            patientWindow.Show();
+            Close();
 
-            selectedPatientWin.Show();
+        }
 
+        private void HomeScreenOnClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow Home = new MainWindow();
+            Home.Show();
+            Close();
         }
 
         private void HomeScreen()

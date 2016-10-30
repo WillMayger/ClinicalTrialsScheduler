@@ -3,7 +3,6 @@ C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\LoginWindow
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\MainWindow.g.cs
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NewPatientWindow.g.cs
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\PatientList.g.cs
-C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\SelectedPatient.g.cs
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\App.g.cs
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication_MarkupCompile.cache
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication_MarkupCompile.lref
@@ -16,7 +15,6 @@ C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\LoginWindow
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\MainWindow.baml
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NewPatientWindow.baml
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\PatientList.baml
-C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\SelectedPatient.baml
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.g.resources
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.Properties.Resources.resources
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.csproj.GenerateResource.Cache

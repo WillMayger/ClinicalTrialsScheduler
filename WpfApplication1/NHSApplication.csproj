@@ -57,6 +57,9 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -75,9 +78,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SelectedPatient.xaml.cs">
-      <DependentUpon>SelectedPatient.xaml</DependentUpon>
-    </Compile>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,10 +101,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SelectedPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,6 +154,10 @@
     <ProjectReference Include="..\ClinicalTrialsSchedulerClassLibrary\ClinicalTrialsSchedulerClassLibrary.csproj">
       <Project>{f13c5243-2920-4eb4-800f-5223b283d81f}</Project>
       <Name>ClinicalTrialsSchedulerClassLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestClinicalTrailsScheduler\TestClinicalTrailsScheduler.csproj">
+      <Project>{77297b70-250b-4ebb-950f-90a4a5a5d3a3}</Project>
+      <Name>TestClinicalTrailsScheduler</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,29 +9,50 @@
     <Grid Margin="0,0,0,-42">
         <TextBlock x:Name="clinicalTrialsScheduler" Margin="215.8,20.963,216.3,0" TextWrapping="Wrap" Text="Clinical Trials Scheduler" VerticalAlignment="Top" FontSize="26.667" FontWeight="Bold"/>
         <TextBlock x:Name="pharmacy" Margin="323.554,61.433,340.646,0" TextWrapping="Wrap" Text="Pharmacy" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="medwayMaritimeHospital" Margin="276.635,97.393,265.665,0" TextWrapping="Wrap" Text="Medway Maritime Hospital" VerticalAlignment="Top" FontSize="16"/>
-        <Label x:Name="label" Content="Patient Name:" HorizontalAlignment="Left" Height="28" Margin="138,146,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="28" Margin="309,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
-        <TextBox x:Name="textBoxSurName" HorizontalAlignment="Left" Height="28" Margin="562,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
-        <Label x:Name="label1" Content="First" HorizontalAlignment="Left" Height="28" Margin="267,146,0,0" VerticalAlignment="Top" Width="63"/>
-        <Label x:Name="label1_Copy" Content="Surname" HorizontalAlignment="Left" Height="28" Margin="487,146,0,0" VerticalAlignment="Top" Width="63"/>
-        <Label x:Name="label_Copy" Content="Hospital No" HorizontalAlignment="Left" Height="28" Margin="138,179,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="textBoxHospitalNumber" HorizontalAlignment="Left" Height="28" Margin="309,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
-        <Label x:Name="label_Copy1" Content="Trial No" HorizontalAlignment="Left" Height="28" Margin="138,212,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="textBoxTrialNumber" HorizontalAlignment="Left" Height="28" Margin="309,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
-        <Label x:Name="label_Copy2" Content="Trial" HorizontalAlignment="Left" Height="28" Margin="138,245,0,0" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="textBoxTrial" HorizontalAlignment="Left" Height="28" Margin="309,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
-        <Label x:Name="label_Copy3" Content="Randomisation Arm" HorizontalAlignment="Left" Height="28" Margin="138,278,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxRandomizationArm" HorizontalAlignment="Left" Height="28" Margin="309,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
-        <Label x:Name="label_Copy4" Content="Cycle Length" HorizontalAlignment="Left" Height="28" Margin="138,306,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxCycleLength" HorizontalAlignment="Left" Height="28" Margin="309,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
-        <Label x:Name="label_Copy5" Content="Cycle" HorizontalAlignment="Left" Height="28" Margin="138,339,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxCycle" HorizontalAlignment="Left" Height="28" Margin="309,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
-        <Label x:Name="label_Copy6" Content="Due Date" HorizontalAlignment="Left" Height="28" Margin="138,372,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="saveBtn" Click="OnSave" Content="Save" Height="67" Margin="562,0,51,117" VerticalAlignment="Bottom" Background="#FFB891F0" FontWeight="Bold"/>
-        <Calendar x:Name="dueDate" HorizontalAlignment="Left" Margin="309,379,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxCycleOf" HorizontalAlignment="Left" Height="28" Margin="395,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
-        <Label x:Name="label_Copy7" Content="Of" HorizontalAlignment="Left" Height="28" Margin="361,344,0,0" VerticalAlignment="Top" Width="24"/>
+        <Label x:Name="label" Content="Patient Name:" HorizontalAlignment="Left" Height="28" Margin="51,146,0,0" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="28" Margin="165,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84"/>
+        <TextBox x:Name="textBoxSurName" HorizontalAlignment="Left" Height="28" Margin="254,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90"/>
+        <Label x:Name="label1" Content="First Name" HorizontalAlignment="Left" Height="28" Margin="165,118,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="label1_Copy" Content="Surname" HorizontalAlignment="Left" Height="28" Margin="254,118,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label x:Name="label_Copy" Content="Hospital No" HorizontalAlignment="Left" Height="28" Margin="51,179,0,0" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="textBoxHospitalNumber" HorizontalAlignment="Left" Height="28" Margin="165,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <Label x:Name="label_Copy1" Content="Trial No" HorizontalAlignment="Left" Height="28" Margin="51,212,0,0" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="textBoxTrialNumber" HorizontalAlignment="Left" Height="28" Margin="165,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <Label x:Name="label_Copy2" Content="Trial" HorizontalAlignment="Left" Height="28" Margin="51,245,0,0" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="textBoxTrial" HorizontalAlignment="Left" Height="28" Margin="165,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <Label x:Name="label_Copy3" Content="Randomisation Arm" HorizontalAlignment="Left" Height="28" Margin="51,278,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxRandomizationArm" HorizontalAlignment="Left" Height="28" Margin="165,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <Label x:Name="label_Copy4" Content="Cycle Length" HorizontalAlignment="Left" Height="28" Margin="51,311,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxCycleLength" HorizontalAlignment="Left" Height="28" Margin="165,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
+        <Label x:Name="label_Copy5" Content="Cycle" HorizontalAlignment="Left" Height="28" Margin="51,344,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxCycle" HorizontalAlignment="Left" Height="28" Margin="165,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
+        <Label x:Name="label_Copy6" Content="Due Date" HorizontalAlignment="Left" Height="28" Margin="51,377,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="deleteBtn" Click="OnSave" Content="Delete Patient" Height="67" Margin="498,0,147,122" VerticalAlignment="Bottom" Background="#FFB891F0" FontWeight="Bold"/>
+        <Calendar x:Name="dueDate" HorizontalAlignment="Left" Margin="165,377,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxCycleOf" HorizontalAlignment="Left" Height="28" Margin="251,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="43"/>
+        <Label x:Name="label_Copy7" Content="Of" HorizontalAlignment="Left" Height="28" Margin="216,344,0,0" VerticalAlignment="Top" Width="24"/>
+        <Button x:Name="buttonHome" Content="Home" Click="HomeScreenOnClick" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="label1_Copy1" Content="Prescription Prescribed?" HorizontalAlignment="Left" Height="28" Margin="381,146,0,0" VerticalAlignment="Top" Width="145"/>
+        <WrapPanel HorizontalAlignment="Left" Height="13" Margin="540,152,0,0" VerticalAlignment="Top" Width="122">
+            <RadioButton x:Name="radioButtonPrescripYes" Content="Yes" Width="60"/>
+            <RadioButton x:Name="radioButtonPrescripNo" Content="No" Width="45"/>
+        </WrapPanel>
+        <Label x:Name="label1_Copy2" Content="Dispenced?" HorizontalAlignment="Left" Height="28" Margin="381,179,0,0" VerticalAlignment="Top" Width="145"/>
+        <WrapPanel HorizontalAlignment="Left" Height="13" Margin="540,185,0,0" VerticalAlignment="Top" Width="122">
+            <RadioButton x:Name="radioButtonDispenceYes" Content="Yes" Width="60"/>
+            <RadioButton x:Name="radioButtonDispenceNo" Content="No" Width="45"/>
+        </WrapPanel>
+        <Label x:Name="label1_Copy3" Content="Warenty for blood reults?" HorizontalAlignment="Left" Height="28" Margin="381,212,0,0" VerticalAlignment="Top" Width="145"/>
+        <WrapPanel HorizontalAlignment="Left" Height="13" Margin="540,218,0,0" VerticalAlignment="Top" Width="122">
+            <RadioButton x:Name="radioButtonBloodYes" Content="Yes" Width="60"/>
+            <RadioButton x:Name="radioButtonBloodNo" Content="No" Width="45"/>
+        </WrapPanel>
+        <TextBox x:Name="textBoxNotes" HorizontalAlignment="Left" Height="151" Margin="387,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323"/>
+        <Button x:Name="saveBtn" Click="OnSave" Content="Save" Height="67" Margin="612,0,32,122" VerticalAlignment="Bottom" Background="#FFB891F0" FontWeight="Bold"/>
+        <Button x:Name="printBtn" Click="OnSave" Content="Print" Height="67" Margin="387,0,262,122" VerticalAlignment="Bottom" Background="#FFB891F0" FontWeight="Bold"/>
+        <Label x:Name="label1_Copy4" Content="Notes:" HorizontalAlignment="Left" Height="28" Margin="387,278,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label x:Name="label_Copy8" Content="Delay in days" HorizontalAlignment="Left" Height="28" Margin="381,245,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.464"/>
+        <TextBox x:Name="textBoxDelayInDays" HorizontalAlignment="Left" Height="28" Margin="540,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129"/>
 
 
     </Grid>

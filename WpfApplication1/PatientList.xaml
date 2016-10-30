@@ -20,6 +20,7 @@
         <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="245,61,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlockLast" HorizontalAlignment="Left" Margin="370,61,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="253,125,0,0" TextWrapping="Wrap" Text="Trail Name:" VerticalAlignment="Top"/>
+        <Button x:Name="buttonHome" Content="Home" Click="HomeScreenOnClick" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
