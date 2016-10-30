@@ -4,22 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.ComponentModel;
 
 namespace ClinicalTrialsSchedulerClassLibrary
 {
     public class Patient
     {
+        [DisplayName("First Name")]
         public string firstName { get; set; }
+
+        [DisplayName("Last Name")]
         public string surName { get; set; }
+
+        [DisplayName("Hospital No")]
         public string hospitalNumber { get; set; }
+
+        [DisplayName("Trial No")]
         public string trialNumber { get; set; }
+
+        [DisplayName("Trial")]
         public string trial { get; set; }
+
+        [DisplayName("Randomization Arm")]
         public string randomizationArm { get; set; }
+
+        [DisplayName("Cycle Length")]
         public string cycleLength { get; set; }
+
+        [DisplayName("Cycle")]
         public string cycle { get; set; }
+
+        [DisplayName("Cycle Of")]
         public string cycleOf { get; set; }
+
+        [DisplayName("Due Date")]
         public string dueDate { get; set; }
-        public string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\patient.xml";
+
+        public static string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\patient.xml";
 
         public Patient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, string dueDate)
         {
@@ -88,6 +109,67 @@ namespace ClinicalTrialsSchedulerClassLibrary
             doc.Save(fileLocation);
         }
 
+        public string GetPatientNotes()
+        {
+            string notes = "";
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    try
+                    {
+                        notes = patient.Attributes["notes"].Value.ToString();
+                        return notes;
+                    }
+                    catch
+                    {
+                        return notes;
+                    }
+
+                }
+
+            }
+
+            return notes;
+
+        }
+
+        public bool SavePatientNotes(string notes)
+        {
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                {
+
+                    patient.SetAttribute("notes", notes);
+
+                    doc.Save(fileLocation);
+
+                    return true;
+
+                }
+
+            }
+
+            return false;
+
+        }
+
         public List<Patient> LoadPatients(string firstName, string surName)
         {
             List<Patient> patientsArray = new List<Patient>();
@@ -98,7 +180,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
 
             foreach (XmlElement patient in patients)
             {
-                if (patient.Attributes["surName"].Value.ToString() == surName)
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower())
                 {
                     Patient newPatient = new Patient(
                         patient.Attributes["firstName"].Value.ToString(),
@@ -122,6 +204,71 @@ namespace ClinicalTrialsSchedulerClassLibrary
 
         }
 
+        public List<Patient> LoadPatients(string trial)
+        {
+            List<Patient> patientsArray = new List<Patient>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+                if (patient.Attributes["trial"].Value.ToString().ToLower() == trial.ToLower())
+                {
+                    Patient newPatient = new Patient(
+                        patient.Attributes["firstName"].Value.ToString(),
+                        patient.Attributes["surName"].Value.ToString(),
+                        patient.Attributes["hospitalNumber"].Value.ToString(),
+                        patient.Attributes["trialNumber"].Value.ToString(),
+                        patient.Attributes["trial"].Value.ToString(),
+                        patient.Attributes["randomizationArm"].Value.ToString(),
+                        patient.Attributes["cycleLength"].Value.ToString(),
+                        patient.Attributes["cycle"].Value.ToString(),
+                        patient.Attributes["cycleOf"].Value.ToString(),
+                        patient.Attributes["dueDate"].Value.ToString()
+                        );
+
+                    patientsArray.Add(newPatient);
+                }
+
+            }
+
+            return patientsArray;
+
+        }
+
+        public static List<Patient> AllPatients()
+        {
+            List<Patient> patientsArray = new List<Patient>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+                    Patient newPatient = new Patient(
+                        patient.Attributes["firstName"].Value.ToString(),
+                        patient.Attributes["surName"].Value.ToString(),
+                        patient.Attributes["hospitalNumber"].Value.ToString(),
+                        patient.Attributes["trialNumber"].Value.ToString(),
+                        patient.Attributes["trial"].Value.ToString(),
+                        patient.Attributes["randomizationArm"].Value.ToString(),
+                        patient.Attributes["cycleLength"].Value.ToString(),
+                        patient.Attributes["cycle"].Value.ToString(),
+                        patient.Attributes["cycleOf"].Value.ToString(),
+                        patient.Attributes["dueDate"].Value.ToString()
+                        );
+
+                    patientsArray.Add(newPatient);
+
+            }
+
+            return patientsArray;
+
+        }
+
         public bool DeletePatient(string firstName, string surName, string trialNumber)
         {
             XmlDocument doc = new XmlDocument();
@@ -132,7 +279,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
             foreach (XmlElement patient in patients)
             {
 
-                if (patient.Attributes["surName"].Value.ToString() == surName && patient.Attributes["firstName"].Value.ToString() == firstName && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
+                if (patient.Attributes["surName"].Value.ToString().ToLower() == surName.ToLower() && patient.Attributes["firstName"].Value.ToString().ToLower() == firstName.ToLower() && patient.Attributes["trialNumber"].Value.ToString() == trialNumber)
                 {
                     doc.DocumentElement.RemoveChild(patient);
 

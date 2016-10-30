@@ -33,5 +33,14 @@ namespace NHSApplication
             NewPatient.Show();
             Close();
         }
+
+        private void PatientListWindow(object sender, RoutedEventArgs e)
+        {
+            PatientList patientList = new PatientList();
+            patientList.Show();
+            Close();
+        }
+
     }
+
 }

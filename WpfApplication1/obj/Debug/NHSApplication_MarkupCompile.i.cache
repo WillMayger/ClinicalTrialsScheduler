@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\App.xaml
-41773221652
+51386654166
 
-12-214136619
+131771389139
 16829932944
-LoginWindow.xaml;MainWindow.xaml;NewPatientWindow.xaml;PatientList.xaml;
+LoginWindow.xaml;MainWindow.xaml;NewPatientWindow.xaml;PatientList.xaml;SelectedPatient.xaml;
 
-True
+False
 

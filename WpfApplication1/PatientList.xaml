@@ -7,10 +7,19 @@
         mc:Ignorable="d"
         Title="Clinical Trials Scheduler" Height="550" Width="725" MinWidth="750" MinHeight="550" MaxWidth="750" MaxHeight="550" Background="#FFB9F9B9">
     <Grid>
-        <TextBlock x:Name="clinicalTrialsScheduler" Margin="215.8,20.963,216.3,0" TextWrapping="Wrap" Text="Clinical Trials Scheduler" VerticalAlignment="Top" FontSize="26.667" FontWeight="Bold"/>
-        <TextBlock x:Name="pharmacy" Margin="323.554,61.433,340.646,0" TextWrapping="Wrap" Text="Pharmacy" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="medwayMaritimeHospital" Margin="276.635,97.393,265.665,0" TextWrapping="Wrap" Text="Medway Maritime Hospital" VerticalAlignment="Top" FontSize="16"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" Height="369" Width="722" Background="#FFB891F0"/>
+        <TextBlock x:Name="clinicalTrialsScheduler" Margin="210,10,222,0" TextWrapping="Wrap" Text="Clinical Trials Scheduler" VerticalAlignment="Top" FontSize="26.667" FontWeight="Bold"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Height="325" Width="710" Background="#FFB891F0" AutoGeneratingColumn="grid_AutoGeneratingColumn" MouseDoubleClick="SelectedPatientEvent"/>
+        <TextBox x:Name="textBoxPatientFirstName" HorizontalAlignment="Left" Height="22" Margin="245,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113" />
+        <TextBox x:Name="textBoxPatientLastName" HorizontalAlignment="Left" Height="22" Margin="370,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="117,84,0,0" TextWrapping="Wrap" Text="Enter Patient Name: " VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Search Patients" HorizontalAlignment="Left" Margin="511,84,0,0" VerticalAlignment="Top" Width="95" Click="PatientSearchOnClick" Height="22"/>
+        <TextBox x:Name="textBoxTrials" HorizontalAlignment="Left" Height="23" Margin="245,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" />
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="117,147,0,0" TextWrapping="Wrap" Text="Enter Trial Name:" VerticalAlignment="Top"/>
+        <Button x:Name="button1" Content="Search Trials" HorizontalAlignment="Left" Margin="511,146,0,0" VerticalAlignment="Top" Width="95" Click="TrialSearchOnClick" Height="23"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="154,115,0,0" TextWrapping="Wrap" Text="OR" VerticalAlignment="Top" Height="17" Width="18" RenderTransformOrigin="0.417,0.558"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="245,61,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockLast" HorizontalAlignment="Left" Margin="370,61,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="253,125,0,0" TextWrapping="Wrap" Text="Trail Name:" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
