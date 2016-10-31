@@ -41,6 +41,13 @@ namespace NHSApplication
             Close();
         }
 
+        private void PatientByDueDateWindow(object sender, RoutedEventArgs e)
+        {
+            PatientByDate patientByDate = new PatientByDate();
+            patientByDate.Show();
+            Close();
+        }
+
     }
 
 }

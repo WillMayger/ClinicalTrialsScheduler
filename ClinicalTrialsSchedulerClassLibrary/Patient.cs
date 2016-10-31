@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.ComponentModel;
+using System.Globalization;
 
 namespace ClinicalTrialsSchedulerClassLibrary
 {
@@ -28,11 +29,11 @@ namespace ClinicalTrialsSchedulerClassLibrary
         
         public string cycleOf { get; set; }
         
-        public DateTime dueDate { get; set; }
+        public string dueDate { get; set; }
 
         public static string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\patient.xml";
 
-        public Patient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, string dueDate)
+        public Patient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, DateTime dueDate)
         {
             //do validation
 
@@ -45,7 +46,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
             this.cycleLength = cycleLength;
             this.cycle = cycle;
             this.cycleOf = cycleOf;
-            this.dueDate = Convert.ToDateTime(dueDate);
+            this.dueDate = ConvertDateToString(dueDate);
         }
 
         public Patient()
@@ -84,7 +85,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
             doc.Save(fileLocation);
         }
 
-        public void SavePatient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, string dueDate)
+        public void SavePatient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, DateTime dueDate)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(fileLocation);
@@ -100,7 +101,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
             newElem.SetAttribute("cycleLength", cycleLength);
             newElem.SetAttribute("cycle", cycle);
             newElem.SetAttribute("cycleOf", cycleOf);
-            newElem.SetAttribute("dueDate", dueDate);
+            newElem.SetAttribute("dueDate", ConvertDateToString(dueDate));
 
             doc.DocumentElement.AppendChild(newElem);
 
@@ -129,7 +130,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
                         patient.Attributes["cycleLength"].Value.ToString(),
                         patient.Attributes["cycle"].Value.ToString(),
                         patient.Attributes["cycleOf"].Value.ToString(),
-                        patient.Attributes["dueDate"].Value.ToString()
+                        ConvertStringToDate(patient.Attributes["dueDate"].Value.ToString())
                         );
 
                     patientsArray.Add(newPatient);
@@ -163,7 +164,42 @@ namespace ClinicalTrialsSchedulerClassLibrary
                         patient.Attributes["cycleLength"].Value.ToString(),
                         patient.Attributes["cycle"].Value.ToString(),
                         patient.Attributes["cycleOf"].Value.ToString(),
-                        patient.Attributes["dueDate"].Value.ToString()
+                        ConvertStringToDate(patient.Attributes["dueDate"].Value.ToString())
+                        );
+
+                    patientsArray.Add(newPatient);
+                }
+
+            }
+
+            return patientsArray;
+
+        }
+
+        public List<Patient> LoadPatients(DateTime fromDate, DateTime toDate)
+        {
+            List<Patient> patientsArray = new List<Patient>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocation);
+
+            XmlNodeList patients = doc.GetElementsByTagName("Patient");
+
+            foreach (XmlElement patient in patients)
+            {
+                long patientTimeStamp = TimeStamp(ConvertStringToDate(patient.Attributes["dueDate"].Value.ToString()));
+                if (patientTimeStamp >= TimeStamp(fromDate) && patientTimeStamp <= TimeStamp(toDate))
+                {
+                    Patient newPatient = new Patient(
+                        patient.Attributes["firstName"].Value.ToString(),
+                        patient.Attributes["surName"].Value.ToString(),
+                        patient.Attributes["hospitalNumber"].Value.ToString(),
+                        patient.Attributes["trialNumber"].Value.ToString(),
+                        patient.Attributes["trial"].Value.ToString(),
+                        patient.Attributes["randomizationArm"].Value.ToString(),
+                        patient.Attributes["cycleLength"].Value.ToString(),
+                        patient.Attributes["cycle"].Value.ToString(),
+                        patient.Attributes["cycleOf"].Value.ToString(),
+                        ConvertStringToDate(patient.Attributes["dueDate"].Value.ToString())
                         );
 
                     patientsArray.Add(newPatient);
@@ -185,6 +221,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
 
             foreach (XmlElement patient in patients)
             {
+
                     Patient newPatient = new Patient(
                         patient.Attributes["firstName"].Value.ToString(),
                         patient.Attributes["surName"].Value.ToString(),
@@ -195,7 +232,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
                         patient.Attributes["cycleLength"].Value.ToString(),
                         patient.Attributes["cycle"].Value.ToString(),
                         patient.Attributes["cycleOf"].Value.ToString(),
-                        patient.Attributes["dueDate"].Value.ToString()
+                        ConvertStringToDateStatic(patient.Attributes["dueDate"].Value.ToString())
                         );
 
                     patientsArray.Add(newPatient);
@@ -254,7 +291,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
             return false;
         }
 
-        public bool EditPatient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, string dueDate)
+        public bool EditPatient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, DateTime dueDate)
         {
 
             if (DeletePatient(this.firstName, this.surName, this.trialNumber) == false) {
@@ -586,6 +623,34 @@ namespace ClinicalTrialsSchedulerClassLibrary
 
         }
         #endregion
+
+        public string ConvertDateToString(DateTime dt)
+        {
+            return dt.ToString("dd/MM/yyyy");
+        }
+
+        public DateTime ConvertStringToDate(string dt)
+        {
+            return DateTime.ParseExact(dt, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        }
+
+        public static string ConvertDateToStringStatic(DateTime dt)
+        {
+            return dt.ToString("dd/MM/yyyy");
+        }
+
+        public static DateTime ConvertStringToDateStatic(string dt)
+        {
+            return DateTime.ParseExact(dt, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        }
+
+
+        private long TimeStamp (DateTime dateObj)
+        {
+            long ticks = dateObj.Ticks - DateTime.ParseExact("01/01/1970 00:00:00", "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture).Ticks;
+            ticks /= 10000000; //Convert windows ticks to seconds
+            return ticks;
+        }
     }
 
 }

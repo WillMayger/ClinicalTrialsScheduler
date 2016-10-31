@@ -35,7 +35,7 @@ namespace TestClinicalTrailsScheduler
             string cycleLength = "00";
             string cycle = "00";
             string cycleOf = "00";
-            string dueDate = "00";
+            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970 00:00:00");
             Patient patient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
 
             patient.SavePatient();
@@ -66,7 +66,7 @@ namespace TestClinicalTrailsScheduler
             string cycleLength = "00";
             string cycle = "00";
             string cycleOf = "00";
-            string dueDate = "00";
+            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970 00:00:00");
 
             Patient patient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
 
@@ -90,7 +90,7 @@ namespace TestClinicalTrailsScheduler
             string cycleLength = "00";
             string cycle = "00";
             string cycleOf = "00";
-            string dueDate = "00";
+            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970 00:00:00");
 
             Patient patient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
 
@@ -115,7 +115,7 @@ namespace TestClinicalTrailsScheduler
             string cycleLength = "00";
             string cycle = "00";
             string cycleOf = "00";
-            string dueDate = "00";
+            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970 00:00:00");
 
             Patient patient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
 

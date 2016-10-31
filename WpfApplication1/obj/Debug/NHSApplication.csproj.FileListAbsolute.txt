@@ -20,3 +20,5 @@ C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplicat
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.csproj.GenerateResource.Cache
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.exe
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.pdb
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\PatientByDate.g.cs
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\PatientByDate.baml

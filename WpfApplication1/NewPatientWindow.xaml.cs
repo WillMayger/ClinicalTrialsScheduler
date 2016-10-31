@@ -44,7 +44,7 @@ namespace NHSApplication
             textBoxCycleLength.Text = patient.cycleLength;
             textBoxCycle.Text = patient.cycle;
             textBoxCycleOf.Text = patient.cycleOf;
-            dueDate.SelectedDate = patient.dueDate;
+            dueDate.SelectedDate = Patient.ConvertStringToDateStatic(patient.dueDate);
             textBoxDelayInDays.Text = patient.GetDelayInDays();
 
             radioButtonPrescripYes.IsChecked = patient.GetPrescriptionPrescriped();
@@ -77,7 +77,7 @@ namespace NHSApplication
             string cycleLength = textBoxCycleLength.Text;
             string cycle = textBoxCycle.Text;
             string cycleOf = textBoxCycleOf.Text;
-            string dueDateSelected = dueDate.SelectedDate.ToString();
+            DateTime dueDateSelected = (DateTime)dueDate.SelectedDate;
 
             Patient newPatient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDateSelected);
 

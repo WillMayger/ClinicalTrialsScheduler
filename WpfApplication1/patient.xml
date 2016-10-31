@@ -1,4 +1,4 @@
 <Patients>
-  <Patient firstName="Will" surName="Mayger" hospitalNumber="1" trialNumber="1" trial="Dogs" randomizationArm="1" cycleLength="2" cycle="1" cycleOf="2" dueDate="04/11/2016 00:00:00" delayInDays="1" prescriptionPrescriped="False" despenced="False" bloodWarranty="False" notes="yes this is will" />
-  <Patient firstName="Coralie" surName="Garcia" hospitalNumber="6" trialNumber="5" trial="Dogs" randomizationArm="1" cycleLength="3" cycle="2" cycleOf="3" dueDate="03/11/2016 00:00:00" delayInDays="0" prescriptionPrescriped="True" despenced="False" bloodWarranty="False" notes="Coralie is my girlfriend!" />
+  <Patient firstName="Coralie" surName="Garcia" hospitalNumber="2" trialNumber="2" trial="Dogs" randomizationArm="2" cycleLength="2" cycle="2" cycleOf="2" dueDate="02/11/2016" delayInDays="1" prescriptionPrescriped="False" despenced="False" bloodWarranty="False" notes="tes" />
+  <Patient firstName="Will" surName="Mayger" hospitalNumber="2" trialNumber="2" trial="Dogs" randomizationArm="2" cycleLength="2" cycle="2" cycleOf="2" dueDate="30/10/2016" delayInDays="1" prescriptionPrescriped="False" despenced="False" bloodWarranty="False" notes="yes" />
 </Patients>
