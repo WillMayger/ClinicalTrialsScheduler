@@ -26,7 +26,7 @@ namespace TestClinicalTrailsScheduler
         [TestMethod]
         public void WritesToFile()
         {
-            string firstName = "will";
+            string firstName = "Will";
             string surName = "Mayger";
             string hospitalNumber = "00";
             string trialNumber = "00";
@@ -35,7 +35,7 @@ namespace TestClinicalTrailsScheduler
             string cycleLength = "00";
             string cycle = "00";
             string cycleOf = "00";
-            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970 00:00:00");
+            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970");
             Patient patient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
 
             patient.SavePatient();
@@ -51,7 +51,7 @@ namespace TestClinicalTrailsScheduler
             Assert.AreEqual(loadedPatient.hospitalNumber, hospitalNumber);
             Assert.AreEqual(loadedPatient.cycleLength, cycleLength);
             Assert.AreEqual(loadedPatient.trialNumber, trialNumber);
-            Assert.AreEqual(loadedPatient.dueDate, dueDate);
+            Assert.AreEqual(Patient.ConvertStringToDateStatic(loadedPatient.dueDate), dueDate);
         }
 
         [TestMethod]
@@ -66,7 +66,7 @@ namespace TestClinicalTrailsScheduler
             string cycleLength = "00";
             string cycle = "00";
             string cycleOf = "00";
-            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970 00:00:00");
+            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970");
 
             Patient patient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
 
@@ -90,7 +90,7 @@ namespace TestClinicalTrailsScheduler
             string cycleLength = "00";
             string cycle = "00";
             string cycleOf = "00";
-            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970 00:00:00");
+            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970");
 
             Patient patient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
 
@@ -115,7 +115,7 @@ namespace TestClinicalTrailsScheduler
             string cycleLength = "00";
             string cycle = "00";
             string cycleOf = "00";
-            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970 00:00:00");
+            DateTime dueDate = Patient.ConvertStringToDateStatic("01/01/1970");
 
             Patient patient = new Patient(firstName, surName, hospitalNumber, trialNumber, trial, randomizationArm, cycleLength, cycle, cycleOf, dueDate);
 
@@ -132,7 +132,7 @@ namespace TestClinicalTrailsScheduler
             Assert.AreEqual(loadedPatient.hospitalNumber, hospitalNumber);
             Assert.AreEqual(loadedPatient.cycleLength, cycleLength);
             Assert.AreEqual(loadedPatient.trialNumber, trialNumber);
-            Assert.AreEqual(loadedPatient.dueDate, dueDate);
+            Assert.AreEqual(Patient.ConvertStringToDateStatic(loadedPatient.dueDate), dueDate);
 
             string firstNameNew = "HasBeenEdited";
             string randomizationArmNew = "01";
@@ -150,7 +150,7 @@ namespace TestClinicalTrailsScheduler
             Assert.AreEqual(loadedPatientEdited.hospitalNumber, hospitalNumber);
             Assert.AreEqual(loadedPatientEdited.cycleLength, cycleLength);
             Assert.AreEqual(loadedPatientEdited.trialNumber, trialNumber);
-            Assert.AreEqual(loadedPatientEdited.dueDate, dueDate);
+            Assert.AreEqual(Patient.ConvertStringToDateStatic(loadedPatient.dueDate), dueDate);
 
         }
 

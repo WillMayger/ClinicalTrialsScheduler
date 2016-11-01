@@ -36,9 +36,19 @@ namespace WpfApplication1
             string userEmail = emailInput.Text;
             string userPassword = passwordInput.Password;
 
-            Auth auth = new Auth(userEmail, userPassword);
+            if (!User.UserEmailExists(userEmail))
+            {
+                string invalidCredentials = "Your username is inccorect, please try again.";
+                MessageBox.Show(invalidCredentials, "ERROR!");
 
-            bool authenticated = auth.AuthenticateUser();
+                return;
+            }
+
+            User attUser = new User(userEmail, userPassword);
+
+            User realUser = User.LoadUser(userEmail);
+
+            bool authenticated = Auth.AuthenticateUser(realUser.hash, attUser.salt, userPassword);
 
             if (authenticated)
             {
@@ -46,7 +56,7 @@ namespace WpfApplication1
             }
             else
             {
-                string invalidCredentials = "Your username or password is inccorect, please try again.";
+                string invalidCredentials = "Your password is inccorect, please try again.";
                 MessageBox.Show(invalidCredentials, "ERROR!");
             }
             

@@ -1,5 +1,3 @@
 <Users>
-  <testuser_test_com salt="ASDfgdhsERG3" hash="7e46fabc0becb4a188b605f3d323d5a461c40fa27adaca6ec809e940d943208b" admin="false"/>
-  <testadmin_test_com salt="SDFGJsfghsd" hash="201721e54b2acf6f346660d11b51414f5a0ad82a7b17d3cdf9a66dec27aaad4c" admin="true"/>
-  <testdifferentusersamepassword_test_com salt="SDFH567JNbhds" hash="37457f2611953476d550074f2b98c68d780115e25c985573e50d3943d3c67499" admin="false"/>
+  <User email="admin@admin" hash="2730f41e7ed79377e8f89f19b3c7c930d488db33e903f3cc05705d9b25b6b8c8" salt="adadmin" />
 </Users>

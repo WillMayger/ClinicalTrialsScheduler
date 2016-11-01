@@ -7,38 +7,20 @@ using System.Security.Cryptography;
 
 namespace ClinicalTrialsSchedulerClassLibrary
 {
-    public class Auth
+    public static class Auth
     {
-        private string email { get; set; }
-        private string hash { get; set; }
-        private string salt { get; set; }
-        private User user { get; set; }
-        private string userLoginHashAttempt { get; set; }
-        private string fileLocation { get; set; }
+        public static string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\users.xml";
 
-        public Auth(string email, string password)
+        public static bool AuthenticateUser(string hash, string salt, string password)
         {
-            fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\users.xml";
-
-            User user = new User(email, fileLocation);
-
-            this.user = user;
-            this.email = email;
-            this.hash = user.GetHash();
-            this.salt = user.GetSalt();
-            this.userLoginHashAttempt = CreateHash(password);
-            
-        }
-
-        public bool AuthenticateUser()
-        {
-            if (this.hash == this.userLoginHashAttempt) return true;
+            string userLoginHashAttempt = CreateHash(password, salt);
+            if (hash == userLoginHashAttempt) return true;
             return false;
         }
 
-        public string CreateHash(string password)
+        public static string CreateHash(string password, string salt)
         {
-            password = password + this.salt;
+            password = password + salt;
             SHA256Managed crypt = new SHA256Managed();
             string hashedPassword = String.Empty;
             byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(password), 0, Encoding.UTF8.GetByteCount(password));
@@ -49,5 +31,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
             }
             return hashedPassword;
         }
+
     }
+
 }
