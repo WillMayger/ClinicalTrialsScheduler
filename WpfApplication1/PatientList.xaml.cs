@@ -24,8 +24,14 @@ namespace NHSApplication
         public PatientList()
         {
             InitializeComponent();
+            try
+            {
+                dataGrid.ItemsSource = Patient.AllPatients();
+            }
+            catch
+            {
 
-            dataGrid.ItemsSource = Patient.AllPatients();
+            }
 
         }
 
@@ -76,8 +82,14 @@ namespace NHSApplication
             string lastName = textBoxPatientLastName.Text.ToString();
 
             Patient patientObj = new Patient();
+            try
+            {
+                dataGrid.ItemsSource = patientObj.LoadPatients(firstName, lastName);
+            }
+            catch
+            {
 
-            dataGrid.ItemsSource = patientObj.LoadPatients(firstName, lastName);
+            }
 
             dataGrid.Items.Refresh();
 
@@ -88,8 +100,14 @@ namespace NHSApplication
             string trial = textBoxTrials.Text.ToString();
 
             Patient patientObj = new Patient();
+            try
+            {
+                dataGrid.ItemsSource = patientObj.LoadPatients(trial);
+            }
+            catch
+            {
 
-            dataGrid.ItemsSource = patientObj.LoadPatients(trial);
+            }
 
             dataGrid.Items.Refresh();
 

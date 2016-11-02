@@ -13,6 +13,7 @@
         <Button x:Name="addNewPatientBtn" Content="Add New Patient" HorizontalAlignment="Left" Margin="40,237,0,229" Width="144" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold" Click="AddNewPatientWindow"/>
         <Button x:Name="patientListBtn" HorizontalAlignment="Right" Margin="0,237,295,229" Width="144" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold" Content="Patient List"  Click="PatientListWindow" />
         <Button x:Name="patientByDatesBtn" Click="PatientByDueDateWindow" Content="Patients by date" Margin="557,0,40,229" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold" VerticalAlignment="Bottom" Height="53"/>
+        <Button x:Name="usersBtn" HorizontalAlignment="Right" Margin="0,407,295,59" Width="144" BorderThickness="1" Background="#FFB891F0"  IsCancel="True" FontWeight="Bold" Content="Edit Users"  Click="EditUsersWindow" />
 
     </Grid>
 </Window>

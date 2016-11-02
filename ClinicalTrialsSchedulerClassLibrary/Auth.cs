@@ -9,7 +9,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
 {
     public static class Auth
     {
-        public static string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\users.xml";
+        public static string fileLocation = @"C:\clinicaltrialsdata\users.xml";
 
         public static bool AuthenticateUser(string hash, string salt, string password)
         {

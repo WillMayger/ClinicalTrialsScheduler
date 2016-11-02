@@ -24,6 +24,25 @@ namespace WpfApplication1
         public LoginWindow()
         {
             InitializeComponent();
+
+            string filePath = User.fileLocationStatic;
+
+            if (!System.IO.File.Exists(filePath))
+            {
+                System.IO.FileInfo file = new System.IO.FileInfo(filePath);
+                file.Directory.Create(); // If the directory already exists, this method does nothing.
+                System.IO.File.WriteAllText(file.FullName, "<Users></Users>");
+            }
+
+            filePath = Patient.fileLocation;
+
+            if (!System.IO.File.Exists(filePath))
+            {
+                System.IO.FileInfo fileN = new System.IO.FileInfo(filePath);
+                fileN.Directory.Create(); // If the directory already exists, this method does nothing.
+                System.IO.File.WriteAllText(fileN.FullName, "<Patient></Patient>");
+            }
+            
         }
 
         public void LoginWindowClose()
@@ -35,6 +54,14 @@ namespace WpfApplication1
         {
             string userEmail = emailInput.Text;
             string userPassword = passwordInput.Password;
+
+            int count = User.UserCount();
+
+            if (count == 0 && userEmail == "admin" && userPassword == "NHadmins1!")
+            {
+                OnSuccessfulLogin();
+                return;
+            }
 
             if (!User.UserEmailExists(userEmail))
             {

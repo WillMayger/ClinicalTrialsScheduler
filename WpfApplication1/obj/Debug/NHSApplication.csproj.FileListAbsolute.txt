@@ -22,3 +22,9 @@ C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplicat
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.pdb
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\PatientByDate.g.cs
 C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\PatientByDate.baml
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\UserAccounts.g.cs
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\UserAccounts.baml
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\bin\Debug\NHSApplication.exe.manifest
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\bin\Debug\NHSApplication.application
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.exe.manifest
+C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\obj\Debug\NHSApplication.application

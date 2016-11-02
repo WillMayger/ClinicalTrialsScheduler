@@ -13,14 +13,14 @@ namespace ClinicalTrialsSchedulerClassLibrary
         public string hash { get; set; }
         public string salt { get; set; }
         public string email { get; set; }
-        public string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\users.xml";
-        public static string fileLocationStatic = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\users.xml";
+        public string fileLocation = @"C:\Program Files\clinicaltrialsdata\users.xml";
+        public static string fileLocationStatic = @"C:\Program Files\clinicaltrialsdata\users.xml";
 
         public User(string email, string password)
         {
 
             this.email = email;
-            this.salt = password.Substring(0, 2) + email.Substring(0, 5);
+            this.salt = password.Substring(0, 2) + email.Substring(0, 3);
             this.hash = Auth.CreateHash(password, this.salt);
 
         }
@@ -32,6 +32,16 @@ namespace ClinicalTrialsSchedulerClassLibrary
             this.salt = salt;
             this.hash = hash;
 
+        }
+
+        public static int UserCount()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(fileLocationStatic);
+
+            XmlNodeList users = doc.GetElementsByTagName("User");
+
+            return users.Count;
         }
 
         public bool CreateNewUser()
@@ -92,10 +102,10 @@ namespace ClinicalTrialsSchedulerClassLibrary
             return true;
         }
 
-        public bool DeleteUser(string email)
+        public static bool DeleteUser(string email)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(fileLocation);
+            doc.Load(fileLocationStatic);
 
             XmlNodeList users = doc.GetElementsByTagName("User");
 
@@ -106,7 +116,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
                 {
                     doc.DocumentElement.RemoveChild(user);
 
-                    doc.Save(fileLocation);
+                    doc.Save(fileLocationStatic);
 
                     return true;
                 }

@@ -31,7 +31,7 @@ namespace ClinicalTrialsSchedulerClassLibrary
         
         public string dueDate { get; set; }
 
-        public static string fileLocation = @"C:\Users\Will\Documents\NHS\NHSApplication\WpfApplication1\patient.xml";
+        public static string fileLocation = @"C:\Program Files\clinicaltrialsdata\patient.xml";
 
         public Patient(string firstName, string surName, string hospitalNumber, string trialNumber, string trial, string randomizationArm, string cycleLength, string cycle, string cycleOf, DateTime dueDate)
         {

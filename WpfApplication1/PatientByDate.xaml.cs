@@ -24,7 +24,14 @@ namespace NHSApplication
         {
             InitializeComponent();
 
-            dataGrid.ItemsSource = Patient.AllPatients();
+            try
+            {
+                dataGrid.ItemsSource = Patient.AllPatients();
+            }
+            catch
+            {
+
+            }
         }
 
         private void grid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -74,8 +81,14 @@ namespace NHSApplication
             DateTime toDateVar = toDate.SelectedDate.Value;
 
             Patient patientObj = new Patient();
+            try
+            {
+                dataGrid.ItemsSource = patientObj.LoadPatients(fromDateVar, toDateVar);
+            }
+            catch
+            {
 
-            dataGrid.ItemsSource = patientObj.LoadPatients(fromDateVar, toDateVar);
+            }
 
             dataGrid.Items.Refresh();
         }

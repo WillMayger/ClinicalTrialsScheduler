@@ -48,6 +48,13 @@ namespace NHSApplication
             Close();
         }
 
+        private void EditUsersWindow(object sender, RoutedEventArgs e)
+        {
+            UserAccounts userAccounts = new UserAccounts();
+            userAccounts.Show();
+            Close();
+        }
+
     }
 
 }

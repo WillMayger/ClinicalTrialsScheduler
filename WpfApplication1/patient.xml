@@ -1,16 +1,2 @@
 <Patients>
-  <Patient firstName="Coralie" surName="Garcia" hospitalNumber="2" trialNumber="2" trial="Dogs" randomizationArm="2" cycleLength="2" cycle="2" cycleOf="2" dueDate="02/11/2016" delayInDays="1" prescriptionPrescriped="False" despenced="False" bloodWarranty="False" notes="tes" />
-  <Patient firstName="Will" surName="Mayger" hospitalNumber="2" trialNumber="2" trial="Dogs" randomizationArm="2" cycleLength="2" cycle="2" cycleOf="2" dueDate="30/10/2016" delayInDays="1" prescriptionPrescriped="False" despenced="False" bloodWarranty="False" notes="yes" />
-  <Patient firstName="will" surName="Mayger" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="ToBeNot" surName="Deleted" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="will" surName="Mayger" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="ToBeNot" surName="Deleted" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="HasBeenEdited" surName="Edited" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="01" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="will" surName="Mayger" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="ToBeNot" surName="Deleted" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="ToBe" surName="Edited" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="HasBeenEdited" surName="Edited" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="01" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="Will" surName="Mayger" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="ToBeNot" surName="Deleted" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
-  <Patient firstName="ToBe" surName="Edited" hospitalNumber="00" trialNumber="00" trial="00" randomizationArm="00" cycleLength="00" cycle="00" cycleOf="00" dueDate="01/01/1970" />
 </Patients>
